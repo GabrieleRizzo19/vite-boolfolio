@@ -76,7 +76,12 @@ export default {
             </div>
             <div class="myCardContainer row">
                 <div v-for="project in projects" class="card col-4">
-                    <h4 class="card-title">{{ project.title }}</h4>
+                    <h4 class="card-title">
+                        <router-link :to="{ name: 'Project' , params: {id: project.id}}">
+                            {{ project.title }}
+                        </router-link>
+                        
+                    </h4>
                     <p class="card-text">
                         <span class="fw-bold">Tipo:</span> 
                         {{ project.type.name }}
