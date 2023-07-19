@@ -19,6 +19,7 @@
     .myFooter{
         height: 100PX;
         border: 2px solid green;
+        padding: 0 2rem;
     }
 
 </style>

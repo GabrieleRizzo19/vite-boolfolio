@@ -3,7 +3,7 @@
 import axios from 'axios';
 
 export default {
-    name: 'AppMain',
+    name: 'ProjectsList',
     data() {
         return {
             prova: 'dato di prova',
