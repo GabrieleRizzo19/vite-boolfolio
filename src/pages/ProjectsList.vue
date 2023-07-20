@@ -9,7 +9,7 @@ export default {
             prova: 'dato di prova',
             projectURL: 'http://localhost:8000/api/projects',
             projects: [],
-            imageBaseURL: 'http://localhost:8000/',
+            imageBaseURL: 'http://localhost:8000/storage/',
             projectsTotalPage : 0,
             projectsCurrentPage : 0,
 
@@ -75,7 +75,8 @@ export default {
                 Pagina {{ projectsCurrentPage }} di {{ projectsTotalPage }}
             </div>
             <div class="myCardContainer row">
-                <div v-for="project in projects" class="card col-4">
+                <div v-for="project in projects" class="card col-4 p-0">
+                    <img class="card-image" :src="imageBaseURL + project.image" alt="">
                     <h4 class="card-title">
                         <router-link :to="{ name: 'Project' , params: {id: project.id}}">
                             {{ project.title }}

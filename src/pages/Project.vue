@@ -7,7 +7,8 @@
         data(){
             return {
                 project: null,
-                projectURL: 'http://localhost:8000/api/projects/' + this.$route.params.id
+                projectURL: 'http://localhost:8000/api/projects/' + this.$route.params.id,
+                imageBaseURL: 'http://localhost:8000/storage/'
             }
         },
         methods:{
@@ -30,9 +31,24 @@
 
 <template>
 
-    <!-- <div>
-        {{ project.title }}
-    </div> -->
+    <div class="container" v-if="project != null">
+
+        <h1>{{ project.title }}</h1>
+        <img :src="imageBaseURL + project.image" alt="">
+        <h5>Tipo: {{ project.type.name }}</h5>
+        <h5>Tecnologie usate:
+            <template v-for="(technology, index) in project.technology">
+                <template v-if="index != (project.technology.length - 1)">
+                    {{ technology.name }},
+                </template>
+                <template v-else>
+                    {{ technology.name }}
+                </template>
+            </template>
+        </h5>
+        <p>{{ project.description }}</p>
+
+    </div>
 
 </template>
 
